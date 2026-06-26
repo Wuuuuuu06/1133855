@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    
+
+  </head>
+    
+  <body>
+  <html>
+<head>
+    <title>網頁設計</title>
+    
+    <style>
+        :root {
+            --banner-height: 240px;
+            --main-bg: #f8f1e3;
+            --content-width: 1100px;  
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--main-bg);
+            font-family: "Microsoft JhengHei", Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        .fixed-nav {
+            position: fixed;
+            top: 20px;
+            right: 5%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-menu a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 18px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-menu a:hover {
+            background: #FFD306;
+            color: #A23400;
+            transform: translateY(-2px);
+        }
+
+        .banner {
+            width: 100%;
+            height: var(--banner-height);
+            background: linear-gradient(135deg,#FFD306 0%, #EA7500 100%);
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+            display: flex;
+            align-items: center;
+        }
+
+        .banner-content {
+            max-width: var(--content-width);
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .banner-text {
+            font-size: 2.6rem;
+            font-weight: 700;
+            line-height: 1.35;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .line1 { color: #e0f0ff; }
+        .line2 { color: #A23400; font-size: 2.75rem; }
+
+        .main-content {
+            max-width: var(--content-width);
+            margin: 0 auto;
+            padding: 0 5%;
+            width: 100%;
+        }
+
+        .intro-section {
+            padding: 70px 0 50px;
+            text-align: center;
+        }
+
+        .intro-section h2 {
+            font-size: 2.2rem;
+            color: #A23400;
+            margin-bottom: 30px;
+        }
+
+        .intro-text {
+            font-size: 1.15rem;
+            color: #333;
+            background: white;
+            padding: 45px;
+            border-radius: 16px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+            text-align: left;
+        }
+
+        .carousel-container {
+            margin: 40px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .carousel-track { display: flex; width: 300%; transition: transform 0.5s ease; }
+        .slide { flex: 0 0 33.333%; width: 100%; height: 460px; position: relative; }
+        .slide img { width: 100%; height: 100%; object-fit: contain; background: #000; }
+        .overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; padding: 40px 30px 25px; }
+        .slide-title { font-size: 1.55rem; font-weight: 700; margin-bottom: 8px; text-shadow: 0 2px 4px rgba(0,0,0,0.6); }
+        .slide-desc { font-size: 1.05rem; opacity: 0.95; }
+
+        .arrow { 
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(0,0,0,0.65); color: white; border: none;
+            width: 52px; height: 52px; font-size: 28px; cursor: pointer;
+            border-radius: 50%; z-index: 10;
+        }
+        .arrow:hover { background: rgba(0,0,0,0.9); }
+        .arrow-left { left: 15px; }
+        .arrow-right { right: 15px; }
+
+        .dots {
+            position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%);
+            display: flex; gap: 10px; z-index: 15;
+        }
+        .dot { width: 12px; height: 12px; background: rgba(255,255,255,0.7); border-radius: 50%; cursor: pointer; }
+        .dot.active { background: #fff; transform: scale(1.4); }
+
+        .divider-simple {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #ddd, transparent);
+            margin: 40px auto;
+            max-width: var(--content-width);
+        }
+
+        footer {
+            background-color: #FFD306;
+            padding: 50px 20px 40px;
+            text-align: center;
+        }
+
+        footer .footer-content {
+            max-width: var(--content-width);
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed-nav">
+        <div class="nav-menu">
+            <a href="#intro">簡介</a>
+            <a href="#works">作品集</a>
+            <a href="#contact" class="contact-btn">聯絡我</a>
+        </div>
+    </nav>
+
+    <header class="banner">
+        <div class="banner-content">
+            <div class="banner-text">
+                <span class="line1">你好我是嘉義大學數位系</span><br>
+                <span class="line2">吳翊甄</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="divider-simple"></div>
+
+    <div class="main-content">
+
+        <section id="intro" class="intro-section">
+            <h2>自我簡介</h2>
+            <div class="intro-text">
+                <p>大家好，我是吳翊甄，目前就讀<strong>嘉義大學數位學習設計與管理學系</strong>。</p>
+                <p>我熱愛創作與設計，擅長插畫、攝影與數位內容製作。希望透過作品與大家分享我的創意與熱情！</p>
+            </div>
+        </section>
+
+        <div class="divider-simple"></div>
+
+        <div class="carousel-container" id="works">
+            <button class="arrow arrow-left" onclick="prevSlide()">‹</button>
+            
+            <div class="carousel-track" id="carousel">
+                <div class="slide">
+                    <a href="https://www.canva.com/design/DAHHTJ_rVNs/yUfLzxNkBNhwFv_0pLUm8w/edit" target="_blank">
+                        <img src="https://i.ibb.co/qzctMmg/DSC-4204.jpg" alt="DSC-4204">
+                    </a>
+                    <div class="overlay">
+                        <div class="slide-title">期中照片集</div>
+                        <div class="slide-desc">點擊開啟簡報檔</div>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <a href="https://www.canva.com/design/DAHLP8i1zSE/mg_bneri3wQpA0CqT2MqJg/edit" target="_blank">
+                        <img src="https://i.ibb.co/B2D88v1L/S-5013507.jpg" alt="S-5013507">
+                    </a>
+                    <div class="overlay">
+                        <div class="slide-title">期末照片集</div>
+                        <div class="slide-desc">點擊開啟簡報檔</div>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <a href="https://www.canva.com/design/DAHHTJ_rVNs/yUfLzxNkBNhwFv_0pLUm8w/edit" target="_blank">
+                        <img src="https://i.ibb.co/Wvjt6jJf/35-DA9-A12-0-C00-4822-945-F-28878-B5-D36-D5.png" alt="插畫作品">
+                    </a>
+                    <div class="overlay">
+                        <div class="slide-title">插畫作品集</div>
+                        <div class="slide-desc">簡報檔是期中照片簡報檔</div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="arrow arrow-right" onclick="nextSlide()">›</button>
+            <div class="dots" id="dots"></div>
+        </div>
+    </div>
+
+    <div class="divider-simple"></div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div style="margin-bottom: 24px;">
+                <p style="margin: 8px 0; font-size: 1rem;">
+                    <strong>Email：</strong> 
+                    <a href="mailto:wuiris1106@gmail.com" style="color: #4da6ff; text-decoration: none;">wuiris1106@gmail.com</a>
+                </p>
+                <p style="margin: 8px 0; font-size: 1rem;">
+                    <strong>電話：</strong> 
+                    <a href="tel:0905607650" style="color: #4da6ff; text-decoration: none;">0905-607-650</a>
+                </p>
+            </div>
+            <hr style="border: none; border-top: 1px solid #333; margin: 20px auto; max-width: 400px;">
+            <p style="margin: 0; font-size: 0.9rem; opacity: 0.7;">© 2026 翊甄 :)</p>
+        </div>
+    </footer>
+
+    <script>
+        const track = document.getElementById('carousel');
+        let currentIndex = 0;
+        const totalSlides = 3;
+        const dotsContainer = document.getElementById('dots');
+
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.onclick = () => goToSlide(i);
+            dotsContainer.appendChild(dot);
+        }
+
+        function updateDots() {
+            const dots = dotsContainer.querySelectorAll('.dot');
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+    
+  </body>
+  
+</html>
